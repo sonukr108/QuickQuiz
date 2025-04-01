@@ -3,7 +3,7 @@
 QuickQuiz is a modern and interactive web application built with **React** that provides a seamless quiz experience. The app is designed for users to test their knowledge on various topics with an intuitive and responsive UI.
 
 ## 🚀 Live Demo
-🔗 [QuickQuiz on Vercel]( https://quick-quiz-kappa-eight.vercel.app/ )
+🔗 Click to use [QuickQuiz]( https://quick-quiz-kappa-eight.vercel.app/ )
 
 ## 🛠️ Features
 - 🏆 Engaging quiz interface with multiple-choice questions
