@@ -1,10 +1,18 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LandingPage from './Pages/LandingPage'
+import Navbar from './Components/Navbar'
 
 function App() {
 
   return (
     <>
-      <p>Hello ji kaise ho aap</p>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

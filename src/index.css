@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --royal-blue: #041F9B;
+    --blue: #0474D4;
+    --dark-yellow: #ECB332;
+  }
