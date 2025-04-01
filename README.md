@@ -1,12 +1,27 @@
-# React + Vite
+# QuickQuiz 🎯
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+QuickQuiz is a modern and interactive web application built with **React** that provides a seamless quiz experience. The app is designed for users to test their knowledge on various topics with an intuitive and responsive UI.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+🔗 [QuickQuiz on Vercel]( https://quick-quiz-kappa-eight.vercel.app/ )
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Features
+- 🏆 Engaging quiz interface with multiple-choice questions
+- 🎨 Beautiful UI with a responsive design using **Tailwind CSS**
+- ⏳ Timer-based quizzes for a challenging experience
+- 📊 Score tracking and result analysis
+- 🔄 **React Router** for seamless navigation
+- 📝 **Form Handling** for user interactions
+- ⚡ Fast and reliable performance with Vercel hosting
 
-## Expanding the ESLint configuration
+## 🏗️ Tech Stack
+- **Frontend:** React, Tailwind CSS
+- **State Management & Hooks:** React State, useEffect, useState
+- **Routing:** React Router
+- **Form Handling:** React-controlled inputs and validation
+- **Deployment:** Vercel
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
+---
+Made with ❤️ by [Sonu Kumar](https://github.com/sonukr108)
