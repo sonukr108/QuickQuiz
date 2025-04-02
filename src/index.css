@@ -2,7 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-    --royal-blue: #041F9B;
+    --royal-blue: #0e206e;
     --blue: #0474D4;
     --dark-yellow: #ECB332;
   }
