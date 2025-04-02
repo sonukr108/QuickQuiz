@@ -2,8 +2,8 @@ import React from 'react'
 
 const LandingPage = () => {
   return (
-    <div>
-      Hello from landing page.
+    <div className='min-h-[82vh]'>
+      Hello from landing page.lorem5000
     </div>
   )
 }
