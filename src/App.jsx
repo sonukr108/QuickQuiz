@@ -11,7 +11,7 @@ import LogInPage from './Pages/LogInPage'
 function App() {
 
   return (
-    <>
+    <div className='dark:bg-gray-800 dark:text-white'>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -23,7 +23,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 

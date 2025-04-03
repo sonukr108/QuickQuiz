@@ -20,7 +20,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='bg-[var(--royal-blue)] dark:bg-black px-[5%] md:px-[8%] pt-3 md:py-1 flex flex-col gap-1 text-white text-lg sticky top-0'>
+        <nav className='bg-[var(--blue-primary)] dark:bg-black px-[5%] md:px-[6%] lg:px-[8%] pt-3 md:py-1 flex flex-col gap-1 text-white text-lg sticky top-0'>
             <div className='flex items-center justify-between'>
                 <div className="logo-part">
                     <Link to='/'><img src={logoImg} alt="logo" className='w-40' /></Link>
@@ -36,16 +36,16 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className='hidden right-part md:flex gap-5 lg:gap-10 items-center'>
-                    <span className='hover:font-semibold hover:text-[var(--dark-yellow)] py-2 hover:border-b-2 hover:border-[var(--dark-yellow)]'><Link to='/howitworks'>How it works?</Link></span>
-                    <span className='hover:font-semibold hover:text-[var(--dark-yellow)] py-2 hover:border-b-2 hover:border-[var(--dark-yellow)]'><Link to='/features'>Features</Link></span>
-                    <span className='hover:font-semibold hover:text-[var(--dark-yellow)] py-2 hover:border-b-2 hover:border-[var(--dark-yellow)]'><Link to='/about'>About us</Link></span>
+                    <span className='hover:font-semibold hover:text-[var(--sky-blue)] py-2 hover:border-b-2 hover:border-[var(--sky-blue)]'><Link to='/howitworks'>How it works?</Link></span>
+                    <span className='hover:font-semibold hover:text-[var(--sky-blue)] py-2 hover:border-b-2 hover:border-[var(--sky-blue)]'><Link to='/features'>Features</Link></span>
+                    <span className='hover:font-semibold hover:text-[var(--sky-blue)] py-2 hover:border-b-2 hover:border-[var(--sky-blue)]'><Link to='/about'>About us</Link></span>
                     <span className=''>
                         <button title={`${dark ? "Switch to Light Mode" : "Switch to Dark Mode"}`} className='p-2 bg-gray-300/15 transition-all duration-200 rounded-full cursor-pointer'>
                             <img src={dark ? lightImage : darkImage} alt="" onClick={() => changeTheme(setDark)} className='invert' />
                         </button>
                     </span>
                     <span className='hover:font-semibold hover:text-black'>
-                        <button className='border-2 border-[var(--blue)] py-2 px-4 hover:bg-[var(--blue)] hover:rounded-xl transition-all duration-200' >
+                        <button className='border-2 border-[var(--blue)] py-2 px-4 hover:bg-[var(--sky-blue)] hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-200' >
                             <Link to='/login'>Log in</Link>
                         </button>
                     </span>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <span><Link to='/features'>Features</Link></span>
                 <span><Link to='/about'>About us</Link></span>
                 <span>
-                    <button className='border-2 border-[var(--blue)] py-2 px-4 hover:bg-[var(--blue)] rounded-xl transition-all duration-200'>
+                    <button className='border-2 border-[var(--blue)] py-2 px-4 bg-[var(--sky-blue)] rounded-xl shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-200'>
                         <Link to='/login'>Log in</Link>
                     </button>
                 </span>

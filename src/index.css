@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import "tailwindcss";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-    --royal-blue: #0e206e;
-    --blue: #0474D4;
-    --dark-yellow: #ECB332;
-  }
+  --blue-primary: #182e6f;
+  --blue-second: #274ab3;
+  --blue: #305cde;
+  --sky-blue: #59b5f7;
+  --dark-yellow: #FCC822;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
