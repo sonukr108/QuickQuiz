@@ -8,6 +8,7 @@ import Features from './Pages/FeaturesPage'
 import AboutUs from './Pages/AboutUsPage'
 import LogInPage from './Pages/LogInPage'
 import SignupPage from './Pages/SignupPage'
+import Home from './Pages/Home '
 
 function App() {
   const Layout = () => {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/login' element={<LogInPage />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/howitworks' element={<HowItWorks />} />
           <Route path='/features' element={<Features />} />
