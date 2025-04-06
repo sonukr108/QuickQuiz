@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import hatImg from '../assets/hat.svg'
-import logImg from '../assets/QuickQuiz_Logo.png'
+import logImg from '../assets/logoLight.png'
 
 
 const LogInPage = () => {

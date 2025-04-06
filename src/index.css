@@ -4,14 +4,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  --blue-primary: #182e6f;
-  --blue-second: #274ab3;
-  --blue: #305cde;
-  --sky-blue: #59b5f7;
-  --dark-yellow: #FCC822;
-}
-
 * {
   font-family: 'Poppins', sans-serif;
 }
