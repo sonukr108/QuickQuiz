@@ -9,6 +9,7 @@ import AboutUs from './Pages/AboutUsPage'
 import LogInPage from './Pages/LogInPage'
 import SignupPage from './Pages/SignupPage'
 import Home from './Pages/Home '
+import AddQuestion from './Pages/AddQuestion'
 
 function App() {
   const Layout = () => {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/howitworks' element={<HowItWorks />} />
           <Route path='/features' element={<Features />} />
           <Route path='/about' element={<AboutUs />} />
+          <Route path='/addq' element={<AddQuestion />} />
         </Routes>
 
         {!hideNavbarFooter && <Footer />}

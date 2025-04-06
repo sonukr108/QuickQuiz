@@ -1,23 +1,51 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Category from '../Components/Category';
-import { Link } from 'react-router-dom';
+import { getQuestionsByCategory } from '../Context/Firebase';
+import Question from '../Components/Question';
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedTopics, setSelectedTopics] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-        console.log("Selected Topics:", selectedTopics);
-    }, [selectedTopics]);
-    
-    return (
-        <div className='min-h-[70vh] md:min-h-[80vh] w-full p-[8%] flex lg:py-7'>
-            <button onClick={() => setIsModalOpen(true)} className='w-fit h-12 border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'>
-                Select Categories
-            </button>
-            <Category isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} setSelectedTopics={setSelectedTopics} />
-        </div>
-    )
-}
+        const fetchQuestions = async () => {
+            if (selectedCategory) {
+                const data = await getQuestionsByCategory(selectedCategory);
+                setQuestions(data);
+            }
+        };
 
-export default Home 
+        fetchQuestions();
+    }, [selectedCategory]);
+
+    return (
+        <div className='min-h-[70vh] md:min-h-[80vh] w-full p-[8%] flex flex-col gap-6'>
+
+            {/* Top Left Button */}
+            <div className='w-full flex justify-start'>
+                <button
+                    onClick={() => setIsModalOpen(true)}
+                    className='w-fit h-12 border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow transition-all duration-300'
+                >
+                    {selectedCategory ? selectedCategory : 'Select Category for start quiz'}
+                </button>
+            </div>
+
+            {/* Category Modal */}
+            <Category
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                setSelectedCategory={setSelectedCategory}
+            />
+
+            {/* Questions Section */}
+            {questions.length > 0 && (
+                <Question selectedQuestions={questions} />
+            )}
+
+        </div>
+    );
+};
+
+export default Home;
