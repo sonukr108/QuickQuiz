@@ -13,13 +13,13 @@ const Navbar = () => {
     const [dark, setDark] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (isDarkMode) {
-            document.getElementById("root").classList.add("dark");
-            setDark(true);
-        }
-    }, []);
+    // useEffect(() => {
+    //     const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    //     if (isDarkMode) {
+    //         document.getElementById("root").classList.add("dark");
+    //         setDark(true);
+    //     }
+    // }, []);
 
     const changeTheme = () => {
         document.getElementById("root").classList.toggle("dark");
@@ -30,7 +30,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='bg-gray-100/30 backdrop-blur-sm text-black dark:bg-black/50 border-b-1 border-b-gray-400/50 dark:text-white px-[5%] md:px-[6%] lg:px-[8%] pt-3 md:py-0 flex flex-col gap-1 text-lg w-full top-0 sticky z-10'>
+        <nav className='bg-gray-100/30 backdrop-blur-sm text-black dark:bg-black/20 border-b-1 border-b-gray-400/50 dark:text-white px-[5%] md:px-[6%] lg:px-[8%] pt-3 md:py-0 flex flex-col gap-1 text-lg w-full top-0 sticky z-10'>
             <div className='flex items-center justify-between'>
                 <div className="logo-part">
                     <Link to='/'><img src={dark ? logoImg : logoDarkImg} alt="logo" className='w-40' /></Link>

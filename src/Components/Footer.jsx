@@ -29,7 +29,7 @@ const Footer = () => {
                     </span>
                 </div>
                 <span className='h-[1px] w-full bg-gray-400'></span>
-                <span className='py-2'>&copy; {new Date().getUTCFullYear()} Coding W0rld, Pvt. Ltd.</span>
+                <span className='py-2'>&copy; {new Date().getUTCFullYear()} coding w0rld, Pvt. Ltd. &nbsp;&nbsp; &#9825; &lt;Sonu Kumar Verma /&gt;</span>
             </div>
         </footer>
     )

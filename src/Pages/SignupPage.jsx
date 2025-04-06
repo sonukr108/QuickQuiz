@@ -6,7 +6,7 @@ import logoDarkImg from '../assets/logoDark.png'
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 
-const LogInPage = () => {
+const SignupPage = () => {
 
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
@@ -25,7 +25,7 @@ const LogInPage = () => {
         </span>
         <span className='text-xl'>
           <p>Welcome back!</p>
-          <p>Please login to your account.</p>
+          <p>Please signup to your account.</p>
         </span>
         <span className={`flex flex-col items-start w-full border-l-4 px-4 md:px-5 py-1 outline-2 transition-all duration-400 ${emailFocused ? "border-black dark:border-white" : "border-transparent"}`}>
           <label htmlFor="email" className="text-gray-700 dark:text-gray-400">Enter email</label>
@@ -44,8 +44,8 @@ const LogInPage = () => {
           <p>Forget password?</p>
         </span>
         <div className="buttons flex gap-4 md:gap-5 font-semibold text-lg xl:text-xl text-gray-700 dark:text-gray-200">
-          <button className='w-fit border-2 bg-green-400 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'><Link to='/login'>Log in</Link></button>
-          <button className='w-fit border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'><Link to='/signup'>Sign up</Link></button>
+          <button className='w-fit border-2 bg-green-400 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'><Link to='/signup'>Sign up</Link></button>
+          <button className='w-fit border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'><Link to='/login'>Log in</Link></button>
         </div>
         <div className='cursor-pointer'>
           <a href='/'>
@@ -57,4 +57,4 @@ const LogInPage = () => {
   )
 }
 
-export default LogInPage
+export default SignupPage
