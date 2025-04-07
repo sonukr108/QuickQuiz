@@ -24,17 +24,17 @@ const Question = ({ selectedQuestions }) => {
   const handleRestart = () => {
     setCurrentQuestionIndex(0);
     setScore(0);
-    setShowResult(false);
+    window.location.reload();
   };
 
   if (showResult) {
     return (
-      <div className="flex flex-col items-center gap-4">
-        <h1 className="text-2xl font-bold">Quiz Completed!</h1>
+      <div className="w-full flex flex-col justify-center items-center gap-4">
+        <h1 className="text-xl md:text-2xl font-bold">Quiz Completed!</h1>
         <p className="text-lg">Your Score: {score} / {selectedQuestions.length}</p>
         <button
           onClick={handleRestart}
-          className="border px-4 py-2 hover:bg-gray-200 transition-all"
+          className="border px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 hover:rounded-lg transition-all duration-300 cursor-pointer"
         >
           Restart Quiz
         </button>
@@ -43,16 +43,16 @@ const Question = ({ selectedQuestions }) => {
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <h2 className="text-xl font-semibold">
+    <div className="w-full flex flex-col justify-center items-center gap-5">
+      <h2 className="text-xl md:text-2xl font-semibold text-center">
         {currentQuestionIndex + 1}. {selectedQuestions[currentQuestionIndex].question}
       </h2>
-      <div className="flex flex-col gap-2">
+      <div className="md:w-[70%] flex flex-col md:flex-row items-center justify-center flex-wrap gap-3">
         {selectedQuestions[currentQuestionIndex].options.map((option, index) => (
           <button
             key={index}
             onClick={() => handleOptionClick(option)}
-            className="border px-4 py-2 hover:bg-gray-200 transition-all"
+            className="w-full md:w-[45%] border dark:border-gray-300 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 cursor-pointer"
           >
             {option}
           </button>
