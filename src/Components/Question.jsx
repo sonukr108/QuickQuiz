@@ -47,12 +47,12 @@ const Question = ({ selectedQuestions }) => {
       <h2 className="text-xl md:text-2xl font-semibold text-center">
         {currentQuestionIndex + 1}. {selectedQuestions[currentQuestionIndex].question}
       </h2>
-      <div className="md:w-[70%] flex flex-col md:flex-row items-center justify-center flex-wrap gap-3">
+      <div className="w-full md:w-[70%] flex flex-col md:flex-row items-center justify-center flex-wrap gap-3">
         {selectedQuestions[currentQuestionIndex].options.map((option, index) => (
           <button
             key={index}
             onClick={() => handleOptionClick(option)}
-            className="w-full md:w-[45%] border dark:border-gray-300 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 cursor-pointer"
+            className="w-[90%] md:w-[45%] border dark:border-gray-300 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 cursor-pointer"
           >
             {option}
           </button>
