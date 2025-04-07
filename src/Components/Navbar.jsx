@@ -6,15 +6,17 @@ import { MdDarkMode } from "react-icons/md"
 import { CiLight } from "react-icons/ci"
 import logoImg from '../assets/logoLight.png'
 import logoDarkImg from '../assets/logoDark.png'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Navbar = () => {
     const [dark, setDark] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const userName = localStorage.getItem("userName");
 
-    // Apply theme on first time according to system theme
     useEffect(() => {
+        console.log(userName)
         const savedTheme = localStorage.getItem("theme");
-
         if (savedTheme) {
             if (savedTheme === "dark") {
                 document.getElementById("root").classList.add("dark");
@@ -32,7 +34,6 @@ const Navbar = () => {
         }
     }, []);
 
-    // Chnage theme and save in localStorage
     const changeTheme = () => {
         const root = document.getElementById("root");
         if (dark) {
@@ -49,6 +50,11 @@ const Navbar = () => {
     const changeMenu = () => {
         setMenuOpen(prev => !prev);
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem("userName");
+        toast.error("User logged out successfull!");
+    }
 
     return (
         <nav className='bg-gray-100/30 backdrop-blur-sm text-black dark:bg-black/20 border-b border-b-gray-400/50 dark:text-white px-[5%] md:px-[6%] lg:px-[8%] pt-3 md:py-0 flex flex-col gap-1 text-lg w-full top-0 sticky z-10'>
@@ -80,12 +86,22 @@ const Navbar = () => {
                     <span className='hover:text-black dark:hover:text-white py-2 hover:border-b-2 hover:border-black dark:hover:border-white'>
                         <Link to='/about'>About us</Link>
                     </span>
-                    <button title={dark ? "Switch to Light Mode" : "Switch to Dark Mode"} onClick={changeTheme} className='p-2 bg-gray-500/20 transition-all duration-200 rounded-full cursor-pointer'>
+
+                    <button title={dark ? "Switch to Light Mode" : "Switch to Dark Mode"} onClick={changeTheme} className='p-2 bg-gray-500/20 dark:bg-gray-300/20 transition-all duration-200 rounded-full cursor-pointer'>
                         {dark ? <CiLight size={20} /> : <MdDarkMode size={20} />}
                     </button>
-                    <button className='border-2 border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow transition-all duration-300'>
-                        <Link to='/login'>Log in</Link>
-                    </button>
+
+                    {userName ? (
+                        <div className='flex items-center gap-3'>
+                            <button onClick={handleLogout} className='w-fit border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'>
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <button className='w-fit border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'>
+                            <Link to='/login'>Log in</Link>
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -95,9 +111,15 @@ const Navbar = () => {
                 <span><Link to='/howitworks'>How it works?</Link></span>
                 <span><Link to='/features'>Features</Link></span>
                 <span><Link to='/about'>About us</Link></span>
-                <button className='border-2 border-black dark:border-white py-2 px-4 rounded-xl shadow transition-all duration-200'>
-                    <Link to='/login'>Log in</Link>
-                </button>
+                {userName ? (
+                    <button onClick={handleLogout} className='border-2 border-black dark:border-white py-2 px-4 rounded-xl shadow transition-all duration-200'>
+                        Logout
+                    </button>
+                ) : (
+                    <button className='border-2 border-black dark:border-white py-2 px-4 rounded-xl shadow transition-all duration-200'>
+                        <Link to='/login'>Log in</Link>
+                    </button>
+                )}
             </div>
         </nav>
     )

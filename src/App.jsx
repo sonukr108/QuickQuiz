@@ -10,12 +10,13 @@ import LogInPage from './Pages/LogInPage'
 import SignupPage from './Pages/SignupPage'
 import Home from './Pages/Home '
 import AddQuestion from './Pages/AddQuestion'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const Layout = () => {
     const location = useLocation();
 
-    // Check current route
     const hideNavbarFooter = location.pathname === '/login' || location.pathname === '/signup';
 
     return (
@@ -34,10 +35,12 @@ function App() {
         </Routes>
 
         {!hideNavbarFooter && <Footer />}
+
+        {/* Toast Container */}
+        <ToastContainer position="top-center" autoClose={2000} />
       </div>
     );
   };
-
 
   return (
     <BrowserRouter>

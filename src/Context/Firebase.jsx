@@ -1,5 +1,17 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  setDoc
+} from "firebase/firestore";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "firebase/auth";
 
 // Firebase Config
 const firebaseConfig = {
@@ -14,6 +26,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
+
+export { db, auth };
+
 
 // Fetch Questions Category-wise
 export const getQuestionsByCategory = async (category) => {
@@ -34,7 +50,8 @@ export const getQuestionsByCategory = async (category) => {
   }
 };
 
-// Add Question Method (Manual questionId from form)
+
+// Add Question Method
 export const addQuestionToFirestore = async (category, questionId, questionData) => {
   try {
     await setDoc(
@@ -48,4 +65,31 @@ export const addQuestionToFirestore = async (category, questionId, questionData)
   }
 };
 
-export { db };
+
+// User Registration Method
+export const registerUser = async (email, password, name) => {
+  try {
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+
+    await setDoc(doc(db, "Users", user.uid), {
+      email,
+      name,
+    });
+
+    return { success: true, message: "User Registered Successfully!" };
+  } catch (error) {
+    return { success: false, message: error.code || error.message };
+  }
+};
+
+
+// User Login Method
+export const loginUser = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+
+    return { success: true, message: "User Logged in Successfully!" };
+  } catch (error) {
+    return { success: false, message: error.code || error.message };
+  }
+};

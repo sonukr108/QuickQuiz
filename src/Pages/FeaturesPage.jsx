@@ -1,7 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const FeaturesPage = () => {
+  const navigate = useNavigate();
+
+  const handleStartSolving = () => {
+    const userName = localStorage.getItem("userName");
+
+    if (userName) {
+      navigate('/home');  // User is logged in
+    } else {
+      navigate('/login'); // User not logged in
+    }
+  }
   return (
     <div className='min-h-[70vh] md:min-h-[80vh] p-[8%] lg:py-10'>
       <h1 class="text-3xl font-bold text-center mb-6">Features — QuickQuiz</h1>
@@ -66,8 +77,8 @@ const FeaturesPage = () => {
       </div>
 
       <div class="text-center mt-10">
-        <button className='w-fit border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'>
-          <Link to='/signup'>Get Started Now</Link>
+        <button onClick={handleStartSolving} className='w-fit border-2 hover:text-black dark:hover:text-white border-black dark:border-white py-2 px-4 hover:rounded-xl hover:shadow-[0px_3px_6px_rgba(0,0,0,0.16),_0px_3px_6px_rgba(0,0,0,0.23)] transition-all duration-300'>
+          Get Started Now
         </button>
       </div>
 
