@@ -42,7 +42,7 @@ const LandingPage = () => {
       </div>
 
       <div className="right w-full hidden md:flex items-center justify-center">
-        <img src={heroImg} alt="" className='lg:scale-135 z-[-20]' />
+        <img src={heroImg} alt="" className='lg:scale-135 z-[-10]' />
       </div>
 
     </div>

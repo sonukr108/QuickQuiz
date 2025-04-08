@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import logoImg from '../assets/logoLight.png'
 import logoDarkImg from '../assets/logoDark.png'
 import { FaArrowLeftLong } from "react-icons/fa6";
+import SignInwithGoogle from '../Components/SignInwithGoogle'
 
 const LogInPage = () => {
   const navigate = useNavigate();
@@ -112,6 +113,7 @@ const LogInPage = () => {
           </button>
         </div>
 
+        <SignInwithGoogle />
         <div className='cursor-pointer'>
           <a href='/'>
             <FaArrowLeftLong className="inline" /> <span> &nbsp;Go back home</span>

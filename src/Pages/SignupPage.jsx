@@ -5,6 +5,7 @@ import logoDarkImg from '../assets/logoDark.png'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { registerUser } from '../Context/Firebase'
 import { toast } from 'react-toastify';
+import SignInwithGoogle from '../Components/SignInwithGoogle';
 
 const SignupPage = () => {
 
@@ -23,30 +24,30 @@ const SignupPage = () => {
     setShowPassword(prev => !prev);
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!email || !password || !name) {
-    toast.error("Please fill all fields!", { position: "top-center" });
-    return;
+    if (!email || !password || !name) {
+      toast.error("Please fill all fields!", { position: "top-center" });
+      return;
+    }
+
+    const res = await registerUser(email, password, name);
+
+    if (res.success) {
+      toast.success(res.message, { position: "top-center" });
+
+      setEmail("");
+      setPassword("");
+      setName("");
+
+      setTimeout(() => {
+        navigate('/login');
+      }, 3000);
+    } else {
+      toast.error(res.message, { position: "top-center" });
+    }
   }
-
-  const res = await registerUser(email, password, name);
-
-  if (res.success) {
-    toast.success(res.message, { position: "top-center" });
-
-    setEmail("");
-    setPassword("");
-    setName("");
-
-    setTimeout(() => {
-      navigate('/login');
-    }, 3000);
-  } else {
-    toast.error(res.message, { position: "top-center" });
-  }
-}
 
   return (
     <div className='px-[4%] md:px-[8%] lg:px-[18%] xl:px-[28%] w-full h-screen flex items-center justify-center'>
@@ -124,6 +125,7 @@ const handleSubmit = async (e) => {
               <Link to='/login'>Log in</Link>
             </button>
           </div>
+          <SignInwithGoogle />
         </form>
 
         <div className='cursor-pointer'>

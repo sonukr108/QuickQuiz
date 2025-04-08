@@ -49,7 +49,6 @@ const Home = () => {
                 <Question selectedQuestions={questions} />
             )}
             </div>
-
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaGripLines } from "react-icons/fa6"
 import { RxCross2 } from "react-icons/rx"
 import { MdDarkMode } from "react-icons/md"
@@ -10,12 +10,13 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const [dark, setDark] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const userName = localStorage.getItem("userName");
 
     useEffect(() => {
-        console.log(userName)
+        // console.log(userName)
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
             if (savedTheme === "dark") {
@@ -54,6 +55,9 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("userName");
         toast.error("User logged out successfull!");
+        setTimeout(() => {
+            navigate("/");
+          }, 2000);
     }
 
     return (

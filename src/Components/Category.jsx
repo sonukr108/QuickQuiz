@@ -43,7 +43,7 @@ const Category = ({ isOpen, onClose, setSelectedCategory }) => {
 
                 <h1 className="text-3xl font-bold mb-2">Choose your favorite category</h1>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">
-                    Select only 1 category to start quiz
+                    Select any one category to start quiz
                 </p>
 
                 <div className="flex flex-wrap gap-3 justify-center mb-6">
