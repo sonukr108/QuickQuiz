@@ -12,12 +12,34 @@ import Home from './Pages/Home '
 import AddQuestion from './Pages/AddQuestion'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useEffect, useState } from 'react'
 
 function App() {
   const Layout = () => {
     const location = useLocation();
+    const [dark, setDark] = useState(false);
 
     const hideNavbarFooter = location.pathname === '/login' || location.pathname === '/signup';
+
+    useEffect(() => {
+      // console.log(userName)
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        if (savedTheme === "dark") {
+          document.getElementById("root").classList.add("dark");
+          setDark(true);
+        } else {
+          document.getElementById("root").classList.remove("dark");
+          setDark(false);
+        }
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (prefersDark) {
+          document.getElementById("root").classList.add("dark");
+          setDark(true);
+        }
+      }
+    }, []);
 
     return (
       <div className='dark:bg-gray-950 bg-white dark:text-white'>
