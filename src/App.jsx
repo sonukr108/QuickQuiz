@@ -20,7 +20,7 @@ function App() {
     const hideNavbarFooter = location.pathname === '/login' || location.pathname === '/signup';
 
     return (
-      <div className='dark:bg-gray-950 dark:text-white'>
+      <div className='dark:bg-gray-950 bg-white dark:text-white'>
         {!hideNavbarFooter && <Navbar />}
 
         <Routes>

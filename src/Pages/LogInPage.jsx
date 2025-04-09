@@ -51,7 +51,7 @@ const LogInPage = () => {
   }
 
   return (
-    <div className='px-[4%] md:px-[8%] lg:px-[18%] xl:px-[28%] w-full h-screen flex items-center justify-center'>
+    <div className='dark:bg-gray-950 px-[4%] md:px-[8%] lg:px-[18%] xl:px-[28%] w-full h-screen flex items-center justify-center'>
       <form onSubmit={handleSubmit} className="left w-full flex flex-col items-center justify-center gap-5 text-center text-lg">
         <span>
           <img src={logoDarkImg} alt="logo" className='w-50 md:w-70 block dark:hidden' />

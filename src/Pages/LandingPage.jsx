@@ -17,7 +17,7 @@ const LandingPage = () => {
   }
 
   return (
-    <div className='min-h-[70vh] md:min-h-[80vh] w-full p-[8%] flex lg:py-7'>
+    <div className='min-h-[70vh] md:min-h-[80vh] w-full p-[8%] flex lg:py-7 z-20 bg-transparent'>
 
       <div className="left w-full flex justify-center flex-col gap-10">
         <p className='text-4xl font-semibold md:text-5xl xl:text-6xl'>Learn <br /> new concepts <br /> for each question</p>
@@ -42,7 +42,7 @@ const LandingPage = () => {
       </div>
 
       <div className="right w-full hidden md:flex items-center justify-center">
-        <img src={heroImg} alt="" className='lg:scale-135 z-[-10]' />
+        <img src={heroImg} alt="" className='min-h-[80vh]' />
       </div>
 
     </div>
