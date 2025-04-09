@@ -14,6 +14,26 @@ const Navbar = () => {
     const [dark, setDark] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const userName = localStorage.getItem("userName");
+    
+    useEffect(() => {
+        // console.log(userName)
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            if (savedTheme === "dark") {
+                document.getElementById("root").classList.add("dark");
+                setDark(true);
+            } else {
+                document.getElementById("root").classList.remove("dark");
+                setDark(false);
+            }
+        } else {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (prefersDark) {
+                document.getElementById("root").classList.add("dark");
+                setDark(true);
+            }
+        }
+    }, []);
 
     const changeTheme = () => {
         const root = document.getElementById("root");
@@ -37,7 +57,7 @@ const Navbar = () => {
         toast.error("User logged out successfull!");
         setTimeout(() => {
             navigate("/");
-          }, 2000);
+        }, 2000);
     }
 
     return (
