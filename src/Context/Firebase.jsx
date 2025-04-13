@@ -10,7 +10,7 @@ import {
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup
 } from "firebase/auth";
 
 const {
@@ -96,6 +96,27 @@ export const loginUser = async (email, password) => {
 
     return { success: true, message: "User Logged in Successfully!" };
   } catch (error) {
+    return { success: false, message: error.code || error.message };
+  }
+};
+
+// Google Sign-In Method
+export const googleSignIn = async () => {
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+    // Add user to Firestore if it doesn't exist already
+    await setDoc(doc(db, "Users", user.uid), {
+      email: user.email,
+      name: user.displayName,
+    });
+
+    return { success: true, user };
+  } catch (error) {
+    console.error("Google Sign-In Error: ", error);
     return { success: false, message: error.code || error.message };
   }
 };
