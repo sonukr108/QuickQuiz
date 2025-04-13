@@ -51,19 +51,18 @@ const LogInPage = () => {
   }
 
   return (
-    <div className='dark:bg-gray-950 px-[4%] md:px-[8%] lg:px-[18%] xl:px-[28%] w-full h-screen flex items-center justify-center'>
-      <form onSubmit={handleSubmit} className="left w-full flex flex-col items-center justify-center gap-5 text-center text-lg">
+    <div className='dark:bg-gray-950 px-5 md:px-[10%] lg:px-[15%] py-5 w-full min-h-screen flex items-center justify-center'>
+      <form onSubmit={handleSubmit} className="left w-full md:w-[80%] xl:w-[50%] h-[50%] flex flex-col items-center justify-center gap-4 text-center text-sm">
         <span>
-          <img src={logoDarkImg} alt="logo" className='w-50 md:w-70 block dark:hidden' />
-          <img src={logoImg} alt="logo" className='w-50 md:w-70 hidden dark:block' />
+          <img src={logoDarkImg} alt="logo" className='w-30 md:w-50 block dark:hidden' />
+          <img src={logoImg} alt="logo" className='w-30 md:w-50 hidden dark:block' />
         </span>
 
-        <span className='text-xl'>
-          <p>Welcome back!</p>
+        <span className='text-lg'>
           <p>Please login to your account.</p>
         </span>
 
-        <span className={`flex flex-col items-start w-full border-l-4 px-4 md:px-5 py-1 outline-2 transition-all duration-400 ${emailFocused ? "border-black dark:border-white" : "border-transparent"}`}>
+        <span className={`flex flex-col items-start w-full md:w-[80%] border-l-4 px-4 md:px-5 py-1 outline-2 transition-all duration-400 ${emailFocused ? "border-black dark:border-white" : "border-transparent"}`}>
           <label htmlFor="email" className="text-gray-700 dark:text-gray-400">Enter email</label>
           <input
             type="email"
@@ -78,7 +77,7 @@ const LogInPage = () => {
           />
         </span>
 
-        <span className={`flex flex-col items-start w-full border-l-4 px-4 md:px-5 py-1 outline-2 transition-all duration-400 ${passwordFocused ? "border-black dark:border-white" : "border-transparent"}`}>
+        <span className={`flex flex-col items-start w-full md:w-[80%] border-l-4 px-4 md:px-5 py-1 outline-2 transition-all duration-400 ${passwordFocused ? "border-black dark:border-white" : "border-transparent"}`}>
           <label htmlFor="password" className="text-gray-700 dark:text-gray-400">Enter Password</label>
           <input
             type={showPassword ? "text" : "password"}
@@ -93,15 +92,15 @@ const LogInPage = () => {
           />
         </span>
 
-        <span className='flex flex-col md:flex-row justify-between w-full'>
+        <span className='flex flex-col md:flex-row justify-between w-full md:w-[80%]'>
           <p>
             <input type="checkbox" id='remember' onChange={handleShowPassword} />
             <label className='cursor-pointer' htmlFor="remember"> Show Password</label>
           </p>
-          <p>Forget password?</p>
+          <p></p>
         </span>
 
-        <div className="buttons flex gap-4 md:gap-5 font-semibold text-lg xl:text-xl text-gray-700 dark:text-gray-200">
+        <div className="buttons flex gap-4 md:gap-5 font-semibold text-gray-700 dark:text-gray-200">
           <input
             type="submit"
             value="Log in"

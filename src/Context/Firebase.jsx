@@ -13,14 +13,25 @@ import {
   signInWithEmailAndPassword
 } from "firebase/auth";
 
-// Firebase Config
+const {
+  VITE_FIREBASE_API_KEY,
+  VITE_FIREBASE_AUTH_DOMAIN,
+  VITE_FIREBASE_PROJECT_ID,
+  VITE_FIREBASE_STORAGE_BUCKET,
+  VITE_FIREBASE_MESSAGING_SENDER_ID,
+  VITE_FIREBASE_APP_ID,
+} = import.meta.env;
+
+// 🔽 Add this line here
+console.log("API Key from env:", VITE_FIREBASE_API_KEY);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB0QHboSsc1HJeK4zN0fPP3_vZqXxA0FfU",
-  authDomain: "quickquiz-108.firebaseapp.com",
-  projectId: "quickquiz-108",
-  storageBucket: "quickquiz-108.firebasestorage.app",
-  messagingSenderId: "1062404336831",
-  appId: "1:1062404336831:web:1ae661dbf0ed8034432a0a"
+  apiKey: VITE_FIREBASE_API_KEY,
+  authDomain: VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: VITE_FIREBASE_PROJECT_ID,
+  storageBucket: VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
@@ -29,8 +40,6 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 export { db, auth };
-
-
 // Fetch Questions Category-wise
 export const getQuestionsByCategory = async (category) => {
   try {

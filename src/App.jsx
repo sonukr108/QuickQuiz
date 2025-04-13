@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import LandingPage from './Pages/LandingPage'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
@@ -48,12 +48,20 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/login' element={<LogInPage />} />
-          <Route path='/home' element={<Home />} />
+          <Route
+            path='/home'
+            element={
+              localStorage.getItem("userName")
+                ? <Home />
+                : <Navigate to="/login" replace />
+            }
+          />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/howitworks' element={<HowItWorks />} />
           <Route path='/features' element={<Features />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/addq' element={<AddQuestion />} />
+          <Route path="*" element={<div className="p-8 text-center text-xl">404 - Page Not Found</div>} />
         </Routes>
 
         {!hideNavbarFooter && <Footer />}
